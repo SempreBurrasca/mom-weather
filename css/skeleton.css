@@ -1,0 +1,19 @@
+.my-container{
+    display: flex;
+    width: 100%;
+}
+.my-col{
+    background-color: aliceblue;
+    margin: 20px;
+    width: 100%;
+}
+.my-row{
+    background-color: aliceblue;
+    width: 100%;
+    margin: 20px;
+
+}
+.my-container .my-row .my-meteo{
+    transform: translateX(30%);
+}
+

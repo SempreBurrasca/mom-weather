@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project Katrina</title>
+    <!--Dipendenze-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s"></script> 
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+</head>
+<body onload="cheTempoFa()">
+    <div class="my-container">
+        <div class="my-col">
+            <div class="my-location">
+                <div id="my-place"></div>
+                <div id="my-date"></div>
+            </div>
+        </div>
+        <div class="my-col">
+            <h1 id="err"></h1>
+        </div>
+        <div class="my-col">
+        </div>
+        <div class="my-col">
+            <div class="my-menu">
+                <div class="icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-container">
+        <div class="my-row">
+            <div class="my-meteo">
+                <div id="my-icon">
+                    
+                </div>
+                <div id="my-temp" class="temperature">
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <div class="my-container">
+            <div class="my-row">
+                <div >
+                    <button onclick="cheTempoFa()">Testami</button>
+                    <h1 id="my-results">consigli sul tempo</h1>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
