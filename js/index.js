@@ -70,7 +70,7 @@ let callback      = (item)     => {
     myTemp      = myMainMeteo.temp
     myWeather   = item.weather[0]
     myIcon      = myWeather.icon
-    
+    $('#my-date').empty()
     $('#my-date').append(
         '<h4>'+item.dt+'</h4>'
     )
@@ -78,6 +78,7 @@ let callback      = (item)     => {
     $('#my-temp').append(
         '<h4>'+ myTemp + '°C</h4>'
     )
+    $('#my-icon').empty()
     $('#my-icon').append(
         '<img src="http://openweathermap.org/img/w/'+ myIcon + '.png" >'
     )
@@ -97,15 +98,16 @@ let  cheTempoFa   = ()     => {
 
     
 //prendo bg in base alla posizione
-let setBg = () =>{
+let setBg = (item) =>{
+    let panoId = item.pano_id
     
 }
 let apiBg = () =>{
-    let apiUrlMaps= 'https://maps.googleapis.com/maps/api/streetview/metadata?size=600x300&location='
+    let apiUrlMaps= 'https://maps.googleapis.com/maps/api/streetview?source=outdoor&radius=5000&size=600x300&location='
     let secondPartMaps='&heading=-45&pitch=42&fov=110&key=AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s'
-    let finalUrlMaps     = apiUrlMaps + myCity + secondPart
-    console.log(finalUrl)
-    $.getJSON(finalUrl, setBg)
+    let finalUrlMaps     = apiUrlMaps + myCity + secondPartMaps
+    console.log(finalUrlMaps)
+    $.getJSON(finalUrlMaps, setBg)
 }
 //let aK = 'AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s'
     //place search
