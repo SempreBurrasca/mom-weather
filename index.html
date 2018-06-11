@@ -6,53 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project Katrina</title>
     <!--Dipendenze-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>    
+        <!--bootstrap4-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s"></script> 
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js"></script>
 </head>
 <body onload="cheTempoFa()">
-    <div class="my-container">
-        <div class="my-col">
-            <div class="my-location">
-                <div id="my-place"></div>
-                <div id="my-date"></div>
-            </div>
-        </div>
-        <div class="my-col">
+    <!--Header-->
+    <div class="container my-header">
+        <div class="row">
             <h1 id="err"></h1>
-        </div>
-        <div class="my-col">
-        </div>
-        <div class="my-col">
-            <div class="my-menu">
-                <div class="icon">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+            <div class="col my-location text-left">
+                <div id="my-place"></div>
+                
+            </div>
+            <div class="col">
+                <div class="my-menu text-right">
+                    <div id="my-date"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="my-container">
-        <div class="my-row">
-            <div class="my-meteo">
-                <div id="my-icon">
-                    
-                </div>
-                <div id="my-temp" class="temperature">
-                </div>
+    <!--Main-->
+    <div class="container my-main d-flex align-items-center justify-content-center">
+        <div class="row align-items-center">
+            <div class="col my-meteo text-center">
+                <div id="my-icon"></div>
+                <div id="my-temp" class="temperature"></div>
             </div>
         </div>
-       
-    </div>
-    <div class="my-container">
-            <div class="my-row">
-                <div >
-                    <button onclick="cheTempoFa()">Testami</button>
-                    <h1 id="my-results">consigli sul tempo</h1>
-                </div>
+        <div class="row">
+            <div class="col">
+                <div id="my-forecast"></div>
             </div>
+        </div>
     </div>
+    <!--Trigger-->
+    <div id="my-trigger" class="close" onclick="myTrigger();"><div id="c-1"></div><div id="c-2"></div></div> 
+    <!--Menu-->
+    <div id="my-menu"class="container my-menu d-flex align-items-center justify-content-center ">
+        <div class="row ">
+            <div class="col-12 text-center">
+                <button type="button" class="btn btn-outline-light"onclick="cheTempoFa()">Meteo</button>
+            </div>
+            <div class="col-12 text-center mt-4">
+                <button type="button" class="btn btn-outline-light"onclick="preferenze()">Preferenze</button>
+            </div>
+        </div>
+    </div>  
 </body>
 </html>
