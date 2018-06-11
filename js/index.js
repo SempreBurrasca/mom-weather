@@ -14,6 +14,17 @@ let finalUrl
 let err     = document.getElementById("err")
 let apiUrl  = 'https://api.openweathermap.org/data/2.5/weather?'
 let apiKey  = '&units=metric&APPID=677c9d9c7032ace46504bb9aedd66848'
+//trigger menu
+let myTrigger = () =>{
+    let swipe = document.getElementById('my-trigger')
+    let menu = document.getElementById('my-menu')
+    swipe.classList.toggle('close');
+    menu.classList.toggle('hidden')
+}
+//salvo le preferenze dell'utente
+let preferenze = () =>{
+
+}
 
 //registro la posizione dell'utente
 let getLocation = () => {
@@ -86,6 +97,16 @@ let  cheTempoFa   = ()     => {
 
     
 //prendo bg in base alla posizione
+let setBg = () =>{
+    
+}
+let apiBg = () =>{
+    let apiUrlMaps= 'https://maps.googleapis.com/maps/api/streetview/metadata?size=600x300&location='
+    let secondPartMaps='&heading=-45&pitch=42&fov=110&key=AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s'
+    let finalUrlMaps     = apiUrlMaps + myCity + secondPart
+    console.log(finalUrl)
+    $.getJSON(finalUrl, setBg)
+}
 //let aK = 'AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s'
     //place search
 //    function prova(){
@@ -98,7 +119,7 @@ let  cheTempoFa   = ()     => {
 //            console.log(mylocation)
         /*costruisco la url*/
             //let proxyURL     = //'https://cors-proxy.htmldriven.com/?url='
-//            let apiUrl       = '  https://maps.googleapis.com/maps/api/streetview?size=1400x1400&'
+//            
 //            let secondPart   = '&fov=90&heading=235&pitch=10&key='+aK
 //            let andString    = '&'
 //            let finalUrl     = apiUrl + mylocation + secondPart
