@@ -14,6 +14,17 @@ let finalUrl
 let err     = document.getElementById("err")
 let apiUrl  = 'https://api.openweathermap.org/data/2.5/weather?'
 let apiKey  = '&units=metric&APPID=677c9d9c7032ace46504bb9aedd66848'
+//trigger menu
+let myTrigger = () =>{
+    let swipe = document.getElementById('my-trigger')
+    let menu = document.getElementById('my-menu')
+    swipe.classList.toggle('close');
+    menu.classList.toggle('hidden')
+}
+//salvo le preferenze dell'utente
+let preferenze = () =>{
+
+}
 
 //registro la posizione dell'utente
 let getLocation = () => {
