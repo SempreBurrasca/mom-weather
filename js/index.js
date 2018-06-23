@@ -218,6 +218,9 @@ if(mm<10) {
 } 
 
 today = mm + '/' + dd + '/' + yyyy;
-
+ 
 //disattivo scroll su mobile
-
+$(document.body).on("touchmove", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+});
