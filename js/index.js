@@ -218,7 +218,6 @@ if(mm<10) {
 } 
 
 today = mm + '/' + dd + '/' + yyyy;
-//let aK = 'AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s'
     //place search
 //    function prova(){
 //        document.getElementById("my-results").innerHTML = finalUrl
