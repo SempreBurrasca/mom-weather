@@ -174,6 +174,9 @@ let callback      = (item)     => {
     $('#my-forecast').append(
         '<p>'+temperatura+clima+vento+myDesc+'</p>'
     )
+    /*imposto il bg*/
+    url = "url('../asset/"+myIcon+".png')"
+    document.body.style.backgroundImage = url;
     console.log(item)
     console.log(myWind)
 
