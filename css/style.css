@@ -1,6 +1,6 @@
 body{
     background-image: url('../asset/bg-example.jpg');
-
+    overflow: hidden;
 }
 .my-main{
     width: 100vh;
@@ -16,6 +16,7 @@ body{
 .my-main{
     height: 100vh;
     z-index: 0;
+    margin-top: -12%;
 }
 .row{
     z-index: 2;
