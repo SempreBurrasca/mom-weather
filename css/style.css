@@ -1,10 +1,14 @@
-.my-main{
+body{
     background-image: url('../asset/bg-example.jpg');
+
+}
+.my-main{
     width: 100vh;
 }
 .my-header{
-    position: absolute;
+    position: relative;
     top: 2%;
+    margin-top: 1%;
 }
 .my-header .row .col{
     z-index: 2;
@@ -31,19 +35,23 @@
     position: absolute;
     height: 100vh;
     top: 0;
+    left:50%;
+    transform: translateX(-50%);
     z-index: 2;
-    transition: width 2s, height 4s;
+    transition: top 2s, visibility 4s;
 }
 .container.my-pref{
     background-color: #000000;
     position: absolute;
     height: 100vh;
     top: 0;
-    z-index: 3;
-    transition: width 2s, height 4s;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: top 2s, visibility 4s;
 }
 .container.my-menu.hidden{
-    visibility: hidden;
+    top: 100vh;
 }
 .container.my-pref.hidden{
     visibility: hidden;
@@ -56,11 +64,8 @@
     transform: translateX(-50%);
     transform: rotate(90deg);
     z-index: 3;
-}
-#my-trigger2{
-    position: absolute;
-    top: 20px;
-    transform: scale(1.2);
+    transition: transform 2s;
+    margin-bottom: 1%;
 }
 #c-1{
     height: 2px;
@@ -79,9 +84,8 @@
     margin-top: 10px;
 }
 .close#my-trigger{
-    bottom:unset;
-    top: 20px;
     transform: scale(1.2);
+
 }
 .close #c-2{
     margin-top: -2px;

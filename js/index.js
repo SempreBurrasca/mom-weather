@@ -120,14 +120,14 @@ let callback      = (item)     => {
     myDesc      
 
     if(myWeather.main=='Clouds'){
-        myDesc = "Un po' nuvoloso."
+        myDesc = "Un po' nuvoloso"
     }else if(myWeather.main=='Rain'){
         myDesc = 'Portati un ombrello che ti bagni.'
     }else{myDesc=' '}
     
 
     if(35<=myHumid<65){
-        clima='almeno non appiccica '
+        clima='il tempo non appiccica '
     }else if (10<=myHumid<35) {
         clima='bevi tanto che secca '
     }else if(myHumid<10) {
@@ -159,7 +159,7 @@ let callback      = (item)     => {
     }
     $('#my-date').empty()
     $('#my-date').append(
-        '<h4>'+item.dt+'</h4>'
+        '<h4>'+today+'</h4>'
     )
     $('#my-temp').empty()
     $('#my-temp').append(
@@ -203,6 +203,21 @@ let apiBg = () =>{
     console.log(finalUrlMaps)
     $.getJSON(finalUrlMaps, setBg)
 }
+//Che giorno è
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth()+1; //January is 0!
+let yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = mm + '/' + dd + '/' + yyyy;
 //let aK = 'AIzaSyAn0k9LwnfimChEjWn81qd4if-5hxRsz3s'
     //place search
 //    function prova(){
