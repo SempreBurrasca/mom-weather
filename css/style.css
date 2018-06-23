@@ -1,5 +1,6 @@
 .my-main{
     background-image: url('../asset/bg-example.jpg');
+    width: 100vh;
 }
 .my-header{
     position: absolute;
@@ -33,11 +34,21 @@
     z-index: 2;
     transition: width 2s, height 4s;
 }
+.container.my-pref{
+    background-color: #000000;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    z-index: 3;
+    transition: width 2s, height 4s;
+}
 .container.my-menu.hidden{
-    top:100vh;
+    visibility: hidden;
 }
-.hidden{
+.container.my-pref.hidden{
+    visibility: hidden;
 }
+
 #my-trigger{
     position: absolute;
     bottom: 15px;
@@ -45,6 +56,11 @@
     transform: translateX(-50%);
     transform: rotate(90deg);
     z-index: 3;
+}
+#my-trigger2{
+    position: absolute;
+    top: 20px;
+    transform: scale(1.2);
 }
 #c-1{
     height: 2px;

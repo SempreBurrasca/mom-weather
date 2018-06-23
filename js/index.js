@@ -14,16 +14,56 @@ let finalUrl
 let err     = document.getElementById("err")
 let apiUrl  = 'https://api.openweathermap.org/data/2.5/weather?'
 let apiKey  = '&units=metric&APPID=677c9d9c7032ace46504bb9aedd66848'
+let avraiCaldo 
+let avraiFreddo
+let temperatura
+let clima
+let vento
+if (typeof(Storage) !== "undefined") {
+    if(localStorage.caldo=='Più di 20°'){
+        avraiCaldo = 20
+    } else if (localStorage.caldo=='Più di 25°') {
+        avraiCaldo = 25        
+    } else if(localStorage.caldo=='Più di 30°'){
+        avraiCaldo = 30
+    } else{
+        avraiCaldo = 30
+    }
+    if(localStorage.freddo=='Meno di 20°'){
+        avraiFreddo = 20
+    } else if (localStorage.freddo=='Meno di 15°') {
+        avraiFreddo = 15        
+    } else if (localStorage.freddo=='Meno di 15°'){
+        avraiFreddo = 10
+    } else{
+        avraiFreddo = 10
+    } 
+} else {
+    // Sorry! No Web Storage support..
+}
 //trigger menu
 let myTrigger = () =>{
     let swipe = document.getElementById('my-trigger')
     let menu = document.getElementById('my-menu')
-    swipe.classList.toggle('close');
+    swipe.classList.toggle('close')
     menu.classList.toggle('hidden')
 }
 //salvo le preferenze dell'utente
 let preferenze = () =>{
+    let wizard = document.getElementById('preferenze')
+    wizard.classList.toggle('hidden')
+    localStorage.setItem("prova", "Funziona")
 
+}
+let savePref = () =>{
+    let resistenzaCaldo= document.getElementById("yourCaldo")
+    let resistenzaFreddo= document.getElementById("yourFreddo")
+    localStorage.setItem("caldo", resistenzaCaldo.value)
+    localStorage.setItem("freddo", resistenzaFreddo.value)
+}
+let myTrigger2 = () =>{
+    let wizard = document.getElementById('preferenze')
+    wizard.classList.toggle('hidden')
 }
 
 //registro la posizione dell'utente
@@ -31,7 +71,7 @@ let getLocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(savePosition);
     } else {
-        err.innerHTML = "Geolocation is not supported by this browser.";
+        err.innerHTML = "Geolocation is not supported by this browser."
     }
 }
 let savePosition = (position) => {
@@ -68,8 +108,45 @@ let codeLatLng = (latN, longN) => {
 let callback      = (item)     => {
     myMainMeteo = item.main
     myTemp      = myMainMeteo.temp
+    coeffCaldo  = myTemp-avraiCaldo
+    coeffFreddo = myTemp-avraiFreddo
+    coeffTemp   = coeffCaldo+coeffFreddo
+    myHumid     = myMainMeteo.humidity
+    myWind      = item.wind.speed*3.6
     myWeather   = item.weather[0]
     myIcon      = myWeather.icon
+
+    if(35<=myHumid<65){
+        clima=' non è umido '
+    }else if (10<=myHumid<35) {
+        clima=' è secco '
+    }else if(myHumid<10) {
+        clima=' sei nel deserto '  
+    }else if(myHumid>=65){
+        clima=' è umido '
+    } else{}
+
+    if(coeffTemp>20){
+        temperatura=' avrai caldo '
+    }else if (coeffTemp<-20) {
+        temperatura=' avrai freddo '
+    }else if(-20<coeffTemp<-5) {
+        temperatura=' avrai piacevolmente fresco '
+    }else if(5>coeffTemp<20){
+        temperatura=' non troppo caldo '
+    }
+    
+    if(5<=myWind<15){
+        vento=' brezza leggera '
+    }else if(15<=myWind<30){
+        vento=' leggero vento '
+    }else if(30<=myWind<50){
+        vento=' vento forte '
+    }else if(myWind>=50){
+        vento=' burrasca '
+    }else{
+        vento=' neanche un soffio '
+    }
     $('#my-date').empty()
     $('#my-date').append(
         '<h4>'+item.dt+'</h4>'
@@ -82,7 +159,13 @@ let callback      = (item)     => {
     $('#my-icon').append(
         '<img src="http://openweathermap.org/img/w/'+ myIcon + '.png" >'
     )
+    /*scrivo i consigli*/
+    $('#my-forecast').empty()
+    $('#my-forecast').append(
+        '<p>'+temperatura+clima+vento+'</p>'
+    )
     console.log(item)
+    console.log(myWind)
 
 }
 /*richiedo il json all'api di openmeteo*/
@@ -91,6 +174,7 @@ let  cheTempoFa   = ()     => {
 /*faccio la chiamata Api, inserendo l'url e la callback da effettuare con i dati arrivati*/
     $.getJSON(finalUrl, callback)
 }
+//scrivo i consigli meteo
 
 
 

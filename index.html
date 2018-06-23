@@ -39,11 +39,9 @@
             <div class="col my-meteo text-center text-light">
                 <div id="my-icon"></div>
                 <div id="my-temp" class="temperature"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col text-light">
-                <div id="my-forecast"></div>
+                <div id="my-forecast">
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -60,5 +58,30 @@
             </div>
         </div>
     </div>  
+    <!--Modale Preferenze-->
+    <div id="preferenze"class="container my-pref d-flex align-items-center justify-content-center hidden text-white">
+        <div id="my-trigger2" class="close" onclick="myTrigger2();"><div id="c-1"></div><div id="c-2"></div></div> 
+        <div class="row ">
+            <form>
+                <div class="form-group">
+                  <label for="formCaldo">Quando hai caldo?</label>
+                  <select id="yourCaldo"class="form-control">
+                    <option>Seleziona il tuo limite</option> 
+                    <option>Più di 20°</option>  
+                    <option>Più di 25°</option>
+                    <option>Più di 30°</option>
+                  </select>
+                  <label for="formFreddo">Quando hai freddo?</label>
+                  <select id="yourFreddo"class="form-control">
+                    <option>Seleziona il tuo limite</option> 
+                    <option>Meno di 20°</option>  
+                    <option>Meno di 15°</option>
+                    <option>Meno di 10°</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="savePref()">Ok!</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

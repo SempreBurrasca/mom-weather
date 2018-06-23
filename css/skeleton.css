@@ -16,4 +16,10 @@
 .my-container .my-row .my-meteo{
     transform: translateX(30%);
 }
+.col.my-meteo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
