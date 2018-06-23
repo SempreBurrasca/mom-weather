@@ -47,7 +47,7 @@ body{
     top: 0;
     left:50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
     transition: top 2s, visibility 4s;
 }
 .container.my-menu.hidden{
@@ -89,4 +89,7 @@ body{
 }
 .close #c-2{
     margin-top: -2px;
+}
+label{
+    margin: 5px;
 }
