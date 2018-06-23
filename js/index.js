@@ -19,6 +19,8 @@ let avraiFreddo
 let temperatura
 let clima
 let vento
+let consigli
+let myDesc
 if (typeof(Storage) !== "undefined") {
     if(localStorage.caldo=='Più di 20°'){
         avraiCaldo = 20
@@ -115,37 +117,45 @@ let callback      = (item)     => {
     myWind      = item.wind.speed*3.6
     myWeather   = item.weather[0]
     myIcon      = myWeather.icon
+    myDesc      
+
+    if(myWeather.main=='Clouds'){
+        myDesc = "Un po' nuvoloso."
+    }else if(myWeather.main=='Rain'){
+        myDesc = 'Portati un ombrello che ti bagni.'
+    }else{myDesc=' '}
+    
 
     if(35<=myHumid<65){
-        clima=' non è umido '
+        clima='almeno non appiccica '
     }else if (10<=myHumid<35) {
-        clima=' è secco '
+        clima='bevi tanto che secca '
     }else if(myHumid<10) {
-        clima=' sei nel deserto '  
+        clima='sei nel deserto?! Senti come è secco '  
     }else if(myHumid>=65){
-        clima=' è umido '
+        clima='certo che appiccica '
     } else{}
 
     if(coeffTemp>20){
-        temperatura=' avrai caldo '
+        temperatura=' Oggi tanto deodorante che suderai, '
     }else if (coeffTemp<-20) {
-        temperatura=' avrai freddo '
+        temperatura=' Copriti che avrai freddo e poi ti ammali, '
     }else if(-20<coeffTemp<-5) {
-        temperatura=' avrai piacevolmente fresco '
+        temperatura=' Mettiti una giacchetta, '
     }else if(5>coeffTemp<20){
-        temperatura=' non troppo caldo '
+        temperatura=' A maniche corte stai bene dai, '
     }
-    
+
     if(5<=myWind<15){
-        vento=' brezza leggera '
+        vento='. Che piacevole brezza. '
     }else if(15<=myWind<30){
-        vento=' leggero vento '
+        vento='. Senti che giannetta. '
     }else if(30<=myWind<50){
-        vento=' vento forte '
+        vento='. Copriti la gola che ti ammali.  '
     }else if(myWind>=50){
-        vento=' burrasca '
+        vento='. Sempre Burrasca '
     }else{
-        vento=' neanche un soffio '
+        vento='. Neanche un sussurro di vento.  '
     }
     $('#my-date').empty()
     $('#my-date').append(
@@ -162,7 +172,7 @@ let callback      = (item)     => {
     /*scrivo i consigli*/
     $('#my-forecast').empty()
     $('#my-forecast').append(
-        '<p>'+temperatura+clima+vento+'</p>'
+        '<p>'+temperatura+clima+vento+myDesc+'</p>'
     )
     console.log(item)
     console.log(myWind)
