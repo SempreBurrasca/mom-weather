@@ -222,6 +222,7 @@ if(mm<10) {
 
 today = dd + '/' + mm + '/' + yyyy;
 
+
 //sullo scroll da mobile
 $('body').on({
     'touchmove': function(e) {
@@ -255,3 +256,4 @@ document.addEventListener('touchmove', function() { e.preventDefault(); }, { pas
         /*faccio la chiamata Api, inserendo l'url e la callback da effettuare con i dati arrivati*/
 //            $.getJSON(finalUrl, prova)
 //    }
+
