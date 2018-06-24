@@ -217,10 +217,20 @@ if(mm<10) {
     mm = '0'+mm
 } 
 
-today = mm + '/' + dd + '/' + yyyy;
+today = dd + '/' + mm + '/' + yyyy;
  
 //disattivo scroll su mobile
 $(document.body).on("touchmove", function(event) {
     event.preventDefault();
     event.stopPropagation();
+});
+dragula([dndContainer], {
+    direction: 'horizontal'
+}).on('drag', function(el, source) {
+    scrollable = false;
+}).on('drop', function(el, source) {
+    scrollable = true;
+}).on('dragend', function(el, source) {
+    scrollable = true;
+   // your logic on dragend
 });
