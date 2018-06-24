@@ -93,3 +93,11 @@ body{
 label{
     margin: 5px;
 }
+.temperature h4{
+    font-size: 60px;
+    margin-bottom: 30%;
+    font-weight: 200;
+}
+h5{
+    font-weight: 200;
+}

@@ -94,13 +94,13 @@ let codeLatLng = (latN, longN) => {
       if (status == google.maps.GeocoderStatus.OK) {
         $('#my-place').empty()
         $('#my-place').append(
-            '<h4>'+ results[1].address_components[1].short_name + '</h4>'
+            '<h5>'+ results[1].address_components[1].short_name + '</h5>'
         )
         myCity = results[1].address_components[2].long_name
         console.log(results[1])
       } else {
           $('#my-place').append(
-            '<h4>Ops! Abbiamo sbagliato qualcosa</h4>'
+            '<h5>Ops! Abbiamo sbagliato qualcosa</h5>'
           )
           console.log("Geocoder : " + status)
         }
@@ -159,7 +159,7 @@ let callback      = (item)     => {
     }
     $('#my-date').empty()
     $('#my-date').append(
-        '<h4>'+today+'</h4>'
+        '<h5>'+today+'</h5>'
     )
     $('#my-temp').empty()
     $('#my-temp').append(

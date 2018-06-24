@@ -22,4 +22,8 @@
     transform: translateX(-50%);
 }
 
-
+#my-forecast{
+    margin-bottom: 50%;
+}
+.col.my-location div{
+}
