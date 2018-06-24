@@ -220,7 +220,22 @@ if(mm<10) {
     mm = '0'+mm
 } 
 
-today = mm + '/' + dd + '/' + yyyy;
+today = dd + '/' + mm + '/' + yyyy;
+
+//sullo scroll da mobile
+$('body').on({
+    'touchmove': function(e) {
+        if (e.originalEvent.touches > 0 || e.originalEvent.touches > 0) {
+            myTrigger()
+            console.log('Down');
+        } else {
+            myTrigger()
+            console.log('Up');
+        }
+    }
+});
+document.addEventListener('touchmove', function() { e.preventDefault(); }, { passive:false });
+
     //place search
 //    function prova(){
 //        document.getElementById("my-results").innerHTML = finalUrl

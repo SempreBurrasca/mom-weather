@@ -1,5 +1,6 @@
 body{
     background-image: url('../asset/bg.jpg');
+    background-size: cover;
 
 }
 .my-main{
