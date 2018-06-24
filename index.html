@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project Katrina</title>
     <!--Dipendenze-->
@@ -21,8 +21,10 @@
         <div class="row">
             <h1 id="err"></h1>
             <div class="col my-location text-left text-light">
-                <div id="my-place"></div>
-                
+                <div id="my-place"></div> 
+            </div>
+            <div class="col text-center">
+                <div id="my-icon"></div>
             </div>
             <div class="col">
                 <div class="my-menu text-right text-light">
@@ -37,7 +39,6 @@
         </div>
         <div class="row align-items-center">
             <div class="col my-meteo text-center text-light">
-                <div id="my-icon"></div>
                 <div id="my-temp" class="temperature"></div>
                 <div id="my-forecast">
                     
@@ -70,6 +71,7 @@
                     <option>Più di 25°</option>
                     <option>Più di 30°</option>
                   </select>
+                
                   <label for="formFreddo">Quando hai freddo?</label>
                   <select id="yourFreddo"class="form-control">
                     <option>Seleziona il tuo limite</option> 
@@ -78,7 +80,7 @@
                     <option>Meno di 10°</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="savePref()">Ok!</button>
+                <button type="submit" class="btn btn-outline-light" onclick="savePref()">Ok!</button>
             </form>
         </div>
     </div>

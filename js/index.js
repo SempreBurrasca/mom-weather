@@ -94,13 +94,13 @@ let codeLatLng = (latN, longN) => {
       if (status == google.maps.GeocoderStatus.OK) {
         $('#my-place').empty()
         $('#my-place').append(
-            '<h4>'+ results[1].address_components[1].short_name + '</h4>'
+            '<h5>'+ results[1].address_components[1].short_name + '</h5>'
         )
         myCity = results[1].address_components[2].long_name
         console.log(results[1])
       } else {
           $('#my-place').append(
-            '<h4>Ops! Abbiamo sbagliato qualcosa</h4>'
+            '<h5>Ops! Abbiamo sbagliato qualcosa</h5>'
           )
           console.log("Geocoder : " + status)
         }
@@ -159,7 +159,7 @@ let callback      = (item)     => {
     }
     $('#my-date').empty()
     $('#my-date').append(
-        '<h4>'+today+'</h4>'
+        '<h5>'+today+'</h5>'
     )
     $('#my-temp').empty()
     $('#my-temp').append(
@@ -174,6 +174,9 @@ let callback      = (item)     => {
     $('#my-forecast').append(
         '<p>'+temperatura+clima+vento+myDesc+'</p>'
     )
+    /*imposto il bg*/
+    url = "url('asset/"+myIcon+".jpg')"
+    document.body.style.backgroundImage = url;
     console.log(item)
     console.log(myWind)
 
@@ -218,19 +221,39 @@ if(mm<10) {
 } 
 
 today = dd + '/' + mm + '/' + yyyy;
- 
-//disattivo scroll su mobile
-$(document.body).on("touchmove", function(event) {
-    event.preventDefault();
-    event.stopPropagation();
+
+
+//sullo scroll da mobile
+$('body').on({
+    'touchmove': function(e) {
+        if (e.originalEvent.touches > 0 || e.originalEvent.touches > 0) {
+            myTrigger()
+            console.log('Down');
+        } else {
+            myTrigger()
+            console.log('Up');
+        }
+    }
 });
-dragula([dndContainer], {
-    direction: 'horizontal'
-}).on('drag', function(el, source) {
-    scrollable = false;
-}).on('drop', function(el, source) {
-    scrollable = true;
-}).on('dragend', function(el, source) {
-    scrollable = true;
-   // your logic on dragend
-});
+document.addEventListener('touchmove', function() { e.preventDefault(); }, { passive:false });
+
+    //place search
+//    function prova(){
+//        document.getElementById("my-results").innerHTML = finalUrl
+//    }
+
+    /*funzione per chiamare l'api*/
+//    let  chiama      = ()     => {
+//            console.log(aK)
+//            console.log(mylocation)
+        /*costruisco la url*/
+            //let proxyURL     = //'https://cors-proxy.htmldriven.com/?url='
+//            
+//            let secondPart   = '&fov=90&heading=235&pitch=10&key='+aK
+//            let andString    = '&'
+//            let finalUrl     = apiUrl + mylocation + secondPart
+//            console.log(finalUrl)
+        /*faccio la chiamata Api, inserendo l'url e la callback da effettuare con i dati arrivati*/
+//            $.getJSON(finalUrl, prova)
+//    }
+
