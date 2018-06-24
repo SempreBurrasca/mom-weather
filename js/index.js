@@ -175,7 +175,7 @@ let callback      = (item)     => {
         '<p>'+temperatura+clima+vento+myDesc+'</p>'
     )
     /*imposto il bg*/
-    url = "url('../asset/"+myIcon+".png')"
+    url = "url('asset/"+myIcon+".jpg')"
     document.body.style.backgroundImage = url;
     console.log(item)
     console.log(myWind)
