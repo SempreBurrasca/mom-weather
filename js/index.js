@@ -223,35 +223,3 @@ if(mm<10) {
 today = dd + '/' + mm + '/' + yyyy;
 
 //sullo scroll da mobile
-$('body').on({
-    'touchmove': function(e) {
-        if (e.originalEvent.touches > 0 || e.originalEvent.touches > 0) {
-            myTrigger()
-            console.log('Down');
-        } else {
-            myTrigger()
-            console.log('Up');
-        }
-    }
-});
-document.addEventListener('touchmove', function() { e.preventDefault(); }, { passive:false });
-
-    //place search
-//    function prova(){
-//        document.getElementById("my-results").innerHTML = finalUrl
-//    }
-
-    /*funzione per chiamare l'api*/
-//    let  chiama      = ()     => {
-//            console.log(aK)
-//            console.log(mylocation)
-        /*costruisco la url*/
-            //let proxyURL     = //'https://cors-proxy.htmldriven.com/?url='
-//            
-//            let secondPart   = '&fov=90&heading=235&pitch=10&key='+aK
-//            let andString    = '&'
-//            let finalUrl     = apiUrl + mylocation + secondPart
-//            console.log(finalUrl)
-        /*faccio la chiamata Api, inserendo l'url e la callback da effettuare con i dati arrivati*/
-//            $.getJSON(finalUrl, prova)
-//    }
